@@ -24,7 +24,7 @@ plot1 <- shouted1 %>%
   geom_label()
 
 plot2 <- shouted1 %>%
-  ggplot(., aes(x = duration, y = intensity, color = condition, shape = gender)) +
+  ggplot(., aes(x = dur_c, y = int_c, color = condition, shape = gender)) +
   geom_point() 
   
 

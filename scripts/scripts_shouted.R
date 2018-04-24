@@ -23,11 +23,10 @@ plot1 <- shouted1 %>%
   geom_point() +
   geom_label()
 
-plot_dur_int <- shouted1 %>%
-  ggplot(., aes(x = duration, y = intensity, color = gender, shape = condition)) +
-  geom_point() +
-  geom_smooth(method = glm,
-              method.args = list(family = "gaussian"))
+plot2 <- shouted1 %>%
+  ggplot(., aes(x = duration, y = intensity, color = condition, shape = gender)) +
+  geom_point() 
+  
 
 #F1 ~
 
@@ -67,9 +66,7 @@ models <- anova(mod_null, mod_inter1, mod_inter2, mod_full1, test = "Chisq")
 
 summary(models)
 
-f <- glm(mpg ~ drat, data = mtcars, 
-    family = gaussian(link = "identity"))
-summary(f)
+
 
 #An interaction between
 

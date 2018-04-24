@@ -92,6 +92,14 @@ plot1
 ]
 ---
 
+#Descriptive Results
+```{r, 'int_dur plot', message=FALSE, include=TRUE, echo=FALSE, fig.height=7, fig.width=14, fig.retina=2}
+source("../scripts/scripts_shouted.R")
+plot2
+```
+
+---
+
 # Statistical analysis: The Models
 ###- Given our working hypothesis, F1 was set as the **criterion** and intensity, vowel duration, condition and gender were **the predictors**
 --

@@ -1,0 +1,143 @@
+---
+title: "The Acoustics Of Shouting"
+
+subtitle: " A Case Study of English Vowels"
+author: "Dine Mamadou"
+date: 'Rutgers University | Data Sci 4 Ling | 4/24/18'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["hygge", 
+          "https://www.jvcasillas.com/ru_xaringan/css/rutgers.css", 
+          "https://www.jvcasillas.com/ru_xaringan/css/rutgers-fonts.css"]
+    nature:
+      beforeInit: ["https://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: FALSE
+      ratio: "15:9"
+---
+#Research Question
+###General question
+
+## Do the rise in amplitude and the distortion of the vocal tract (caused by yelling) translate into acoustic changes in the vowel? 
+
+###More specifically...
+--
+
+## Is there a difference in vowel quality between normally uttered vowels and shouted ones? 
+---
+#Theoretical background
+##Acording to the Source-Filter theory, speech sounds are distinguished on the basis of both the source and filter properties of the vocal tract (Maddieson 1984, Diehl 2008)
+--
+
+##In the present case, this theory predicts that the nature of the source (the glottis, for vowels) and the shape of the filter (oral cavity) will determine the quality of the vowel sounds
+--
+
+##Vowels spoken normally are thus expected to have slightly different formant values than those in shouted utterances
+---
+
+#Theoretical background/Hypotheses
+##Because "higher vocal intensities are typically produced with an increased jaw opening size with a co-occurring decreased tongue height, thus an increased F1". (Huber & al. 1999)
+--
+
+#Hypotheses:
+
+###(1) F1 will increase as intensity increases; that is, vowels will be higher when shouted than when they're uttered normally
+--
+
+###(2) Vowel duration will be a good predictor of intensity
+---
+
+#Experimental design/participants
+
+##- 2 speakers (1 Male and 1 Female) from Iowa and Illinois, respectively.
+##- 16 different target words containing 10 different English monophthongs and 6 Diphthongs in /hVd/ contexts (adapted from Yoon & al. 2012) 
+##- 2 repetitions in each of 2 conditions, **normal** and **shouted**.
+---
+
+#Experiment/participants
+
+##- In the **shouted** condition, participants were instructed to shout the target words (in isolation) as though they’re addressing someone who is at about 100 meters (330 feet) away from them.
+##- Total of **128 target tokens**
+##- F1, F2, Intensity and vowel duration were measured 
+##- Only the monophthongs are reported here
+---
+
+#Descriptive Results
+
+.pull-left[
+###The results summary is below:
+```{r, 'scripts', message=FALSE, include=TRUE, echo=FALSE, fig.width=14, fig.retina=2}
+source("../scripts/scripts_shouted.R")
+group
+```
+
+```{r, 'vowel plot', message=FALSE, include=TRUE, echo=FALSE, fig.height=7, fig.width=14, fig.retina=2}
+source("../scripts/scripts_shouted.R")
+plot1
+```
+]
+--
+
+.pull-right[  
+
+* In the shouted condition, vowel F1 is in average *142 Hz* higher than in the normal condition
+
+* Shouted vowels are in average about twice as long as non-shouted ones. Their intensity is slighly higher too
+
+* We can further see in the plot how shoued vowels are higher
+
+* The extremely high and low vowels are those produced by the female speaker; which is what we expected
+]
+---
+
+# Statistical analysis: The Models
+###- Given our working hypothesis, F1 was set as the **criterion** and intensity, vowel duration, condition and gender were **the predictors**
+--
+
+###- A generalized linear model was fitted using the **Gaussian** distribution family with **Identity** as the link. Causal priority was given to intensity
+--
+
+###- Main effects and interactions were assessed using the nested model comparison with an alpha level of 0.05
+---
+
+#The Models
+## There was a main effect of intensity on F1, that is overall, intensity is a better predictor of F1 than any other (one) variable
+--
+
+## As far as interactions are concerned, there's a two and three-ways interaction between intensity and gender on one hand, and between intensity, duration and gender on the other
+--
+
+## The three-ways interaction in this case means that the predictive power of intensity and duration is modulated by the gender of the speaker
+---
+
+#Results Interpretation & Conclusion
+## Based on these statistics, our first hypothesis failed to be rejected with a further suggestion that duration, along with intensity and gender conspire to predict vowel height.
+--
+
+## This also validates our second hypothesis
+--
+
+## It is to be noted, however, that the male participant consistently used intensity as a cue for shouting/loudness while the female participant relied on vowel duration
+---
+
+#Results Interpretation & Conclusion
+## While this seems to suggest a gender divide in the type of cues used in shouting, it further makes predictions for articulatory based speech models that further research will help shed light on
+---
+
+#Stats details
+.pull-left[
+```{r, 'stat table', message=FALSE, include=TRUE, echo=FALSE, fig.retina=2}
+source("../scripts/scripts_shouted.R")
+models
+```
+]
+
+.pull-right[
+```{r, 'Stats', message=FALSE, include=TRUE, echo=FALSE, fig.retina=2}
+source("../scripts/scripts_shouted.R")
+ME
+```
+]
+

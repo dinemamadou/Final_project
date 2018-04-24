@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Acoustics Of Shouting</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Dine Mamadou" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.jvcasillas.com/ru_xaringan/css/rutgers.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.jvcasillas.com/ru_xaringan/css/rutgers-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Acoustics Of Shouting
+## A Case Study of English Vowels
+### Dine Mamadou
+### Rutgers University | Data Sci 4 Ling | 4/24/18
+
+---
+
+#Research Question
+###General question
+
+## Do the rise in amplitude and the distortion of the vocal tract (caused by yelling) translate into acoustic changes in the vowel? 
+
+###More specifically...
+--
+
+## Is there a difference in vowel quality between normally uttered vowels and shouted ones? 
+---
+#Theoretical background
+##Acording to the Source-Filter theory, speech sounds are distinguished on the basis of both the source and filter properties of the vocal tract (Maddieson 1984, Diehl 2008)
+--
+
+##In the present case, this theory predicts that the nature of the source (the glottis, for vowels) and the shape of the filter (oral cavity) will determine the quality of the vowel sounds
+--
+
+##Vowels spoken normally are thus expected to have slightly different formant values than those in shouted utterances
+---
+
+#Theoretical background/Hypotheses
+##Because "higher vocal intensities are typically produced with an increased jaw opening size with a co-occurring decreased tongue height, thus an increased F1". (Huber &amp; al. 1999)
+--
+
+#Hypotheses:
+
+###(1) F1 will increase as intensity increases; that is, vowels will be higher when shouted than when they're uttered normally
+--
+
+###(2) Vowel duration will be a good predictor of intensity
+---
+
+#Experimental design/participants
+
+##- 2 speakers (1 Male and 1 Female) from Iowa and Illinois, respectively.
+##- 16 different target words containing 10 different English monophthongs and 6 Diphthongs in /hVd/ contexts (adapted from Yoon &amp; al. 2012) 
+##- 2 repetitions in each of 2 conditions, **normal** and **shouted**.
+---
+
+#Experiment/participants
+
+##- In the **shouted** condition, participants were instructed to shout the target words (in isolation) as though they’re addressing someone who is at about 100 meters (330 feet) away from them.
+##- Total of **128 target tokens**
+##- F1, F2, Intensity and vowel duration were measured 
+##- Only the monophthongs are reported here
+---
+
+#Descriptive Results
+
+.pull-left[
+###The results summary is below:
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; condition &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; meanf1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mean.int &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mean.dur &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Normal &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 598.47 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 75.46 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.27 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Shouted &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 740.90 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 80.06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.43 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;img src="index_files/figure-html/vowel plot-1.png" width="1008" /&gt;
+]
+--
+
+.pull-right[  
+
+* In the shouted condition, vowel F1 is in average *142 Hz* higher than in the normal condition
+
+* Shouted vowels are in average about twice as long as non-shouted ones. Their intensity is slighly higher too
+
+* We can further see in the plot how shoued vowels are higher
+
+* The extremely high and low vowels are those produced by the female speaker; which is what we expected
+]
+---
+
+# Statistical analysis: The Models
+###- Given our working hypothesis, F1 was set as the **criterion** and intensity, vowel duration, condition and gender were **the predictors**
+--
+
+###- A generalized linear model was fitted using the **Gaussian** distribution family with **Identity** as the link. Causal priority was given to intensity
+--
+
+###- Main effects and interactions were assessed using the nested model comparison with an alpha level of 0.05
+---
+
+#The Models
+## There was a main effect of intensity on F1, that is overall, intensity is a better predictor of F1 than any other (one) variable
+--
+
+## As far as interactions are concerned, there's a two and three-ways interaction between intensity and gender on one hand, and between intensity, duration and gender on the other
+--
+
+## The three-ways interaction in this case means that the predictive power of intensity and duration is modulated by the gender of the speaker
+---
+
+#Results Interpretation &amp; Conclusion
+## Based on these statistics, our first hypothesis failed to be rejected with a further suggestion that duration, along with intensity and gender conspire to predict vowel height.
+--
+
+## This also validates our second hypothesis
+--
+
+## It is to be noted, however, that the male participant consistently used intensity as a cue for shouting/loudness while the female participant relied on vowel duration
+---
+
+#Results Interpretation &amp; Conclusion
+## While this seems to suggest a gender divide in the type of cues used in shouting, it further makes predictions for articulatory based speech models that further research will help shed light on
+---
+
+#Stats details
+.pull-left[
+
+```
+## Analysis of Deviance Table
+## 
+## Model 1: F1_midpoint ~ 1
+## Model 2: F1_midpoint ~ int_c * gender
+## Model 3: F1_midpoint ~ int_c * dur_c
+## Model 4: F1_midpoint ~ int_c * dur_c * gender
+##   Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+## 1        71    3357984                          
+## 2        68    2511676  3   846308 1.293e-05 ***
+## 3        68    2782086  0  -270411              
+## 4        64    2135103  4   646984 0.0006577 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+]
+
+.pull-right[
+
+```
+##                estimate     std.Err  statistics     p-value
+## (Intercept)  6.6289e+02  2.4750e+01  2.6780e+01  2.0000e-16
+## int_c       -3.4000e+00  1.0560e+01 -3.2000e-01  7.5000e-01
+## dur_c        4.5560e+02  2.2272e+02  2.0500e+00  4.0000e-02
+## int_c:dur_c -1.2795e+02  1.2529e+02 -1.0200e+00  3.1000e-01
+```
+]
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "15:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

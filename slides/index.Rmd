@@ -70,12 +70,11 @@ output:
 ###The results summary is below:
 ```{r, 'scripts', message=FALSE, include=TRUE, echo=FALSE, fig.width=14, fig.retina=2}
 source("../scripts/scripts_shouted.R")
-group
+
 ```
 
 ```{r, 'vowel plot', message=FALSE, include=TRUE, echo=FALSE, fig.height=7, fig.width=14, fig.retina=2}
-source("../scripts/scripts_shouted.R")
-plot1
+plot2
 ```
 ]
 --
@@ -94,8 +93,7 @@ plot1
 
 #Descriptive Results
 ```{r, 'int_dur plot', message=FALSE, include=TRUE, echo=FALSE, fig.height=7, fig.width=14, fig.retina=2}
-source("../scripts/scripts_shouted.R")
-plot2
+t
 ```
 
 ---
@@ -137,14 +135,12 @@ plot2
 #Stats details
 .pull-left[
 ```{r, 'stat table', message=FALSE, include=TRUE, echo=FALSE, fig.retina=2}
-source("../scripts/scripts_shouted.R")
 models
 ```
 ]
 
 .pull-right[
 ```{r, 'Stats', message=FALSE, include=TRUE, echo=FALSE, fig.retina=2}
-source("../scripts/scripts_shouted.R")
 ME
 ```
 ]
